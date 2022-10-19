@@ -32,8 +32,8 @@ $authorized = (isset($_POST['apikey'])) ? true : false;
     <!-- Navbar start -->
     <nav class="navbar">
       <!-- Navbar brand -->
-      <a href="http://localhost:8000/" class="navbar-brand">
-        <img src="https://assets.website-files.com/600efa38a5bbff0b655b71f1/60111a18416e071e3d660fed_UFOstart-logo.svg" alt="...">
+      <a href="<?="//".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>" class="navbar-brand">
+        <img src="https://assets.website-files.com/600efa38a5bbff0b655b71f1/60111a18416e071e3d660fed_UFOstart-logo.svg" alt="UFOstart logo">
         UFOstart
       </a>
       <!-- Navbar nav -->
@@ -69,7 +69,7 @@ $authorized = (isset($_POST['apikey'])) ? true : false;
                     </div>
                     <div class="card">
                         <!-- Inline form with form-groups -->
-                        <form action="/" method="post" class="form-inline mw-full">
+                        <form action="<?="//".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]?>" method="post" class="form-inline mw-full">
                             <div class="form-group">
                                 <label class="required w-80" for="password">API key</label>
                                 <input type="password" class="form-control" placeholder="API key" id="password" required="required" name="apikey">
