@@ -1,4 +1,5 @@
 <?php
+// TODO: Should be come from the API, and not be hard-coded
 $phases = ['START','PROFESSIONALIZE','GROWTH/SCALE'];
 
 include 'app.curl.inc';
@@ -7,7 +8,6 @@ include 'app.func.inc';
 ?>
 
 <?php if(isset($flightplan)) { ?>
-<!-- Container-fluid -->
 <div class="container-fluid">
     <div class="row row-eq-spacing-sm justify-content-center">
         
@@ -52,6 +52,7 @@ include 'app.func.inc';
                     for ($a = 0; $a < count($flightplan['records']['phase'][$phase]['topics'][$i]['actions']); $a++)
                     {
                         // TODO: Get Attribute Information
+                        // We need the name and the image from the attribte
                         //$attr = callAPI('GET', 'https://api.ufostart.com/users/current', false, $_POST['apikey']);
 
                         $status = ($flightplan['records']['phase'][$phase]['topics'][$i]['actions'][$a]['status'] == 'done') ? true : false;
@@ -96,6 +97,9 @@ include 'app.func.inc';
         <div class="row">
             <div class="col">
                 <pre><?=print_r($data)?></pre>
+                <div class="mt-10">
+                    <a href="<?="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">Back to login</a>
+                </div>
             </div>
         </div>    
     </div>
