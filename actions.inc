@@ -78,9 +78,15 @@ include 'app.func.inc';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
-                            
+
                             $imgsize = "170";
-                            echo '<div class="w-'.$imgsize.' h-'.$imgsize.' p-10 pb-5 pl-0 align-self-center"><img src="https://picsum.photos/seed/'.urlencode($flightplan['records']['phase'][$phase]['topics'][$i]['name']).'/'.$imgsize.'" class="img-fluid rounded-right" alt="..."></div>';
+                            echo '<div class="w-'.$imgsize.' h-'.$imgsize.' p-10 pb-5 pl-0 align-self-center" data-image="'.md5($flightplan['records']['phase'][$phase]['topics'][$i]['actions'][$a]['name']).'">';
+                                if(file_exists('img/'.md5($flightplan['records']['phase'][$phase]['topics'][$i]['actions'][$a]['name']).'.png')) {
+                                    echo '<img src="img/'.md5($flightplan['records']['phase'][$phase]['topics'][$i]['actions'][$a]['name']).'.png" class="img-fluid rounded-right" alt="'.$flightplan['records']['phase'][$phase]['topics'][$i]['actions'][$a]['name'].'">';
+                                } else {
+                                    echo '<img src="https://picsum.photos/seed/'.urlencode($flightplan['records']['phase'][$phase]['topics'][$i]['name']).'/'.$imgsize.'" class="img-fluid rounded-right" alt="...">';
+                                }
+                            echo '</div>';
                             //echo '"Status": '.$status;
                         echo '</div>';
                     }
